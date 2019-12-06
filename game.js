@@ -64,6 +64,7 @@ function gameLoop(delta) {
 }
 
 function start() {
+	PlayerIO.useSecureApiRequests = true;
 	PlayerIO.authenticate(
     'quick-shot-erdmmkjyuko52qcpuaxzfa',    //Game id
     'public',                       //Connection id
@@ -72,6 +73,7 @@ function start() {
     function(client) {
 		console.log("Success!");
 		playerId = 0;
+		client.multiplayer.useSecureConnections = true;
 		gameClient = client;
 		timeToShootText.text = "Connected, click to start game!";
         //Success!
